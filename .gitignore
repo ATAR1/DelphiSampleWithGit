@@ -1,4 +1,4 @@
 __*/ 
 *.local 
-\win32\ 
 *.stat 
+*/win32/* 

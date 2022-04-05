@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{260C35DF-4D07-48AD-AA37-D661CED9C736}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="PersonalBpl\Personal.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="SampleWinApp\SampleWinApp.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Personal">
+        <MSBuild Projects="PersonalBpl\Personal.dproj"/>
+    </Target>
+    <Target Name="Personal:Clean">
+        <MSBuild Projects="PersonalBpl\Personal.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Personal:Make">
+        <MSBuild Projects="PersonalBpl\Personal.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="SampleWinApp">
+        <MSBuild Projects="SampleWinApp\SampleWinApp.dproj"/>
+    </Target>
+    <Target Name="SampleWinApp:Clean">
+        <MSBuild Projects="SampleWinApp\SampleWinApp.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SampleWinApp:Make">
+        <MSBuild Projects="SampleWinApp\SampleWinApp.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Personal;SampleWinApp"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Personal:Clean;SampleWinApp:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Personal:Make;SampleWinApp:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
