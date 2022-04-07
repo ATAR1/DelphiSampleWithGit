@@ -7,7 +7,7 @@
             <Dependencies/>
         </Projects>
         <Projects Include="SampleWinApp\SampleWinApp.dproj">
-            <Dependencies/>
+            <Dependencies>PersonalBpl\Personal.dproj</Dependencies>
         </Projects>
     </ItemGroup>
     <ProjectExtensions>
@@ -26,13 +26,13 @@
     <Target Name="Personal:Make">
         <MSBuild Projects="PersonalBpl\Personal.dproj" Targets="Make"/>
     </Target>
-    <Target Name="SampleWinApp">
+    <Target Name="SampleWinApp" DependsOnTargets="Personal">
         <MSBuild Projects="SampleWinApp\SampleWinApp.dproj"/>
     </Target>
-    <Target Name="SampleWinApp:Clean">
+    <Target Name="SampleWinApp:Clean" DependsOnTargets="Personal:Clean">
         <MSBuild Projects="SampleWinApp\SampleWinApp.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="SampleWinApp:Make">
+    <Target Name="SampleWinApp:Make" DependsOnTargets="Personal:Make">
         <MSBuild Projects="SampleWinApp\SampleWinApp.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">

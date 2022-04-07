@@ -2,7 +2,8 @@ program SampleWinApp;
 
 uses
   Vcl.Forms,
-  MainWindowUnit in 'MainWindowUnit.pas' {MainWindow};
+  MainWindowUnit in 'MainWindowUnit.pas' {MainWindow},
+  PersonEditor in 'PersonEditor.pas';
 
 {$R *.res}
 

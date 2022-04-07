@@ -2,3 +2,4 @@ __*/
 *.local 
 *.stat 
 */win32/* 
+*.identcache 

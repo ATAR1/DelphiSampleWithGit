@@ -19,8 +19,13 @@ type
     Label2: TLabel;
     Label4: TLabel;
     Label5: TLabel;
-    EmployeeEditor1: TEmployeeEditor;
+
+    procedure FormCreate(Sender: TObject);
+
   private
+    label6:TLabel;
+    FPanel1:TPanel;
+    FGrid:TGridPanel;
     { Private declarations }
   public
     { Public declarations }
@@ -31,6 +36,43 @@ var
 
 implementation
 
+uses
+  PersonEditor;
+
 {$R *.dfm}
+
+
+procedure TMainWindow.FormCreate(Sender: TObject);
+begin
+  label6:=TLabel.Create(self);
+  label6.Caption:='test';
+
+  FPanel1:=TPanel.Create(self);
+    with FPanel1 do
+    begin
+      top:=100;
+      Left:=100;
+      Width:=300;
+      Height:=100;
+      Parent:=Self;
+    end;
+
+  FGrid:=TGridPanel.Create(FPanel1);
+  with FGrid do
+    begin
+      parent:=FPanel1;
+      label6.Parent:=FGrid;
+      label6.Caption:=label6.Caption+inttostr(ControlCollection.Count);
+      ControlCollection[0].Column:=1;
+    end;
+   with TPersonEditor.Create(self) do
+    begin
+      Parent:= Self;
+      Top:=250;
+      left:=100;
+      Height:=150;
+      Width:=230;
+    end;
+end;
 
 end.

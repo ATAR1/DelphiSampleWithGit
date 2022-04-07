@@ -11,19 +11,21 @@ object MainWindow: TMainWindow
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
-    Left = 77
+    Left = 491
     Top = 24
-    Width = 332
-    Height = 353
+    Width = 252
+    Height = 281
     TabOrder = 0
     object GridPanel1: TGridPanel
-      Left = 36
-      Top = 60
-      Width = 181
-      Height = 117
+      Left = 1
+      Top = 1
+      Width = 250
+      Height = 279
+      Align = alClient
       BevelOuter = bvNone
       ColumnCollection = <
         item
@@ -91,6 +93,9 @@ object MainWindow: TMainWindow
         item
           SizeStyle = ssAuto
           Value = 50.000000000000000000
+        end
+        item
+          SizeStyle = ssAuto
         end>
       TabOrder = 0
       object Edit1: TEdit
@@ -154,13 +159,5 @@ object MainWindow: TMainWindow
         Caption = #1044#1077#1085#1100' '#1088#1086#1078#1076#1077#1085#1080#1103
       end
     end
-  end
-  object EmployeeEditor1: TEmployeeEditor
-    Left = 624
-    Top = 160
-    Width = 185
-    Height = 41
-    Caption = 'EmployeeEditor1'
-    TabOrder = 1
   end
 end
